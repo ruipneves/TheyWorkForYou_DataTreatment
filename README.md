@@ -6,9 +6,9 @@ Database : PostGreSQL
 
 Students:
 
-Gabriel Candal - ei11066@fe.up.pt
-Pedro Miguel Sousa Santos - ei11125@fe.up.pt
-Rui Pedro Neves - ei11047@fe.up.pt
+Gabriel Candal - ei11066@fe.up.pt  
+Pedro Miguel Sousa Santos - ei11125@fe.up.pt  
+Rui Pedro Neves - ei11047@fe.up.pt  
 
 Description:
 
