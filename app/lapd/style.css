@@ -1,0 +1,207 @@
+/* FONTS */
+
+@font-face
+{
+  font-family: sig;
+  src: url(fonts/Sigward.ttf);
+}
+
+@font-face
+{
+  font-family: Petita;
+  src: url(fonts/PetitaMedium.ttf);
+}
+
+body{
+	background-color:white;
+	margin:0px;
+	font-family:Petita;
+	background-image:url(img/body.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+}
+
+.top{
+	height:15%;
+	background-color:#e45626;
+	overflow: hidden;
+}
+
+.medium{
+	background-color:#E6E6E6;
+	overflow: hidden;
+}
+
+.row{
+	margin-left:5%;
+	margin-right:5%;
+}
+
+.col-1,.col-2,.col-3,.col-4{
+	float:left;
+}
+
+.col-1{
+	width:100%;
+}	
+.col-2{
+	width:50%;
+}
+.col-3{
+	width:33.33%;
+}
+.col-4{
+	width:25%;
+}
+
+.menu{
+	height:60px;
+	width:960px;
+	padding:0px;
+	list-style:none;
+	top:50%;
+}
+.menu li{
+	display: inline;
+	margin-left:15px;
+}
+.menu li:first-child{
+	display: inline;
+	margin-left:0px;
+}
+.menu li a{
+	padding: 20px 5px;
+	display: inline-block;
+	color:black;
+	text-decoration: none;
+	font-size:17px;
+}
+
+.menu li a:hover{
+	color:white;
+}
+
+.pipe{
+	font-size:23px;
+	color:black;
+}
+
+
+/*-----------------LORDS-----------------*/
+
+.medium .row h2{
+	font-size:21px;
+}
+
+i.fa:hover{
+	cursor:pointer;
+	color:#505050;
+}
+
+.box{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	margin-bottom:15px;
+	padding:10px;
+	border:1px solid #505050;
+	border-radius:5px;
+	font-size:17px;
+}
+
+.final-count{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	margin-bottom:15px;
+	padding:10px;
+	font-size:17px;
+}
+
+.titulo{
+	font-size:17px;
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+}
+
+.formulario input[type="text"]{
+	padding:10px;
+	margin-left:10%;
+	width:50%;
+	border-radius:5px;
+	border:1px solid #505050;
+	margin-top:5px;
+}
+
+.formulario input[type="submit"]{
+	padding:10px;
+	width:30%;
+	border-radius:5px;
+	border:1px solid #505050;
+	margin-top:5px;
+	color:white;
+	
+	background: #feccb1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #feccb1 0%, #f17432 50%, #ea5507 94%, #fb955e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feccb1), color-stop(50%,#f17432), color-stop(94%,#ea5507), color-stop(100%,#fb955e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #feccb1 0%,#f17432 50%,#ea5507 94%,#fb955e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #feccb1 0%,#f17432 50%,#ea5507 94%,#fb955e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #feccb1 0%,#f17432 50%,#ea5507 94%,#fb955e 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #feccb1 0%,#f17432 50%,#ea5507 94%,#fb955e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feccb1', endColorstr='#fb955e',GradientType=0 ); /* IE6-9 */
+}
+
+.formulario input[type="submit"]:hover{
+	background: #feccb1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #feccb1 0%, #ea5507 0%, #f17432 50%, #fb955e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feccb1), color-stop(0%,#ea5507), color-stop(50%,#f17432), color-stop(100%,#fb955e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #feccb1 0%,#ea5507 0%,#f17432 50%,#fb955e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #feccb1 0%,#ea5507 0%,#f17432 50%,#fb955e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #feccb1 0%,#ea5507 0%,#f17432 50%,#fb955e 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #feccb1 0%,#ea5507 0%,#f17432 50%,#fb955e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feccb1', endColorstr='#fb955e',GradientType=0 ); /* IE6-9 */
+
+	cursor:pointer;
+}
+
+.resultados-temas{
+	width:80%;
+}
+
+li.result{
+	font-size:17px;
+	width:100%;
+	margin-right:10%;
+	list-style: none;
+	margin-bottom:-15px;
+}
+
+li.result .numbers{
+	font-size:25px;
+	color:#505050;
+	font-style: italic;
+	padding-right: 5px;
+}
+
+.resultado-motion-to-take, .resultado-mais-antigo, .resultado-nr-vezes-palavra{
+	width:80%;
+	font-size:17px;
+	margin-left:10%;
+	margin-bottom:15px;
+}
+
+.resultado-motion-to-take .result, .resultado-nr-vezes-palavra .result{
+	font-size:25px;
+	color:#505050;
+	font-style: italic;
+	padding-right: 5px;
+}
+
+.resultado-mais-antigo .result{
+	font-size:20px;
+	color:#505050;
+}

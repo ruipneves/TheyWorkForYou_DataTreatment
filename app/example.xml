@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Westminster xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="Westminster.xsd">
+    <Lord id="13375">
+        <Name>Lord Acton</Name>
+        <Debates></Debates>
+        <Membership id="100003">
+            <Party>Labour</Party>
+            <Constituency></Constituency>
+            <Title>Lord</Title>
+            <EnteredHouse>2000-04-17</EnteredHouse>
+            <LeftHouse>2010-10-10</LeftHouse>
+            <EnteredReason></EnteredReason>
+            <LeftReason>died</LeftReason>
+        </Membership>
+    </Lord>
+    
+    <MP id="10900">
+        <Name>Hywel Francis></Name>
+        <Debates>
+            <Debate>
+                <Theme>Oral Answers to Questions &#8212; Wales: Economic Rebalancing</Theme>
+                <Body>I am sure the Secretary of State agrees that one of the best ways of rebalancing the economy is to ensure the interface between universities and the private and public sectors, and I know he recently visited my constituency and the new Swansea university campus at Crymlyn burrows. I am also sure he would wish to join me in congratulating the leader of Neath Port Talbot county borough council,...</Body>
+                <Date>2015-01-21</Date>
+            </Debate>
+        </Debates>
+        <Membership id="40034">
+            <Party>Labour</Party>
+            <Constituency>Aberavon</Constituency>
+            <Title></Title>
+            <EnteredHouse>2010-05-06</EnteredHouse>
+            <LeftHouse>9999-12-31</LeftHouse>
+            <EnteredReason>General Election</EnteredReason>
+            <LeftReason>Still in office</LeftReason>
+            
+            <Offices>
+                <Office>
+                    <Department>Liaison Committee (Commons)</Department>
+                    <Position></Position>
+                    <From>2010-09-08</From>
+                    <To>9999-12-31</To>
+                </Office>
+                
+                <Office>
+                    <Department>Human Rights (Joint Committee)</Department>
+                    <Position>Chair</Position>
+                    <From>2010-09-08</From>
+                    <To>9999-12-31</To>
+                </Office>
+            </Offices>
+        </Membership>
+    </MP>
+</Westminster>

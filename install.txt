@@ -1,0 +1,17 @@
+1 - Download NodeJS from https://nodejs.org/download/ and install
+2 - Download Postgresql from http://www.postgresql.org/download/
+3 - Create a new table in the postgres default database with the name teste and with a single column named xmltest with the type xml[]
+4 - Run the query_insert.sql to insert the XML's in the table or simply select the table, right-click -> Scripts -> Insert Script and Copy/Paste the Data from the query_insert into the script in PostgreSql and execute the query.
+2 - Download and extract the zip of the source code to a folder
+3 - Open Node.js command prompt and place yourself at the folder directory (e.g cd /Documents/Node)
+4 - Run the command npm install
+5 - Run the command node server.js
+6 - Open the browser and go to localhost:8080
+7 - Enjoy our application and see what the UK government is up to!
+
+HAVE FUN!
+
+GRUPO 4
+-Gabriel Candal
+-Pedro Santos
+-Rui Neves 

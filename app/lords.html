@@ -1,0 +1,192 @@
+<html ng-app="TheyWorkForYou">
+	<head>
+		<title> TheyWork4You</title>
+		<link rel='stylesheet' href='style.css'>
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<script type="text/javascript" src="js/libs/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/controllers.js"></script>
+		<div class="top">
+			<div class="row">
+				<div class="col-2">
+					<a href="index.html" style="color:white"><img src="img/icon.png" alt="TheyWork4You" height="125" width="125"> </a>
+				</div>
+				<div class="col-2">
+					<ul class="menu">
+						<li class="menu_item"><a href="index.html">Home</a></li>
+						<li class="pipe">|</li>
+						<li class="menu_item" style="border-bottom: 2px solid white;"><span title="Lordes"><a href="lords" style="color:white">Lords</a></span></li>
+						<li class="pipe">|</li>
+						<li class="menu_item"><span title="Membros da Assembleia Legislativa"><a href="mlas">MLA's</a></span></li>
+						<li class="pipe">|</li>
+						<li class="menu_item"><span title="Membros do Parlamento"><a href="msps">MSP's</a></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="medium">
+			<div class="row" ng-controller="lordsController as lord">
+				<div class="col-3">
+					<center><h2>Conheça aqui os Lordes!</h2>
+					<i class="fa fa-arrow-circle-down" style="font-size:25px;margin-bottom:20px;"></i></center>
+					<div class="box" ng-repeat="x in lords">
+						<span style="font-weight: bold;">Nome: </span> {{x.name}}<br>
+						<span style="font-size:13px;">{{x.name}}</span><br><br>
+						<!--<span style="font-weight: bold;">Partido: </span> Liberal Democrat<br>!-->
+						<!--<span style="float:right;font-size:14px;"><span style="font-weight: bold;">ID Person:</span> {{xx.id}}</span><br>!-->
+					</div>
+					<div class="final-count">
+						<span style="font-weight: bold;">Total de Lordes: </span> {{total}}<br>
+					</div>
+				</div>
+				<div class="col-3">
+					<center><h2>Descubra mais detalhes...</h2>
+					<i class="fa fa-search-plus" style="font-size:25px;margin-bottom:20px;"></i></center>
+					<div class="temas-debates">
+						<span class="titulo">Quais os debates em que o Lorde participou?</span>
+						<form class="formulario" ng-submit="debates()">
+							<input type="text" name="fname" placeholder="Nome do Lorde" ng-model="LordNameDebates">
+							<input type="submit" value="Pesquisar"><br>
+						</form>
+						<ul class="resultados-temas" ng-show="debt">
+							<li class="result" ng-repeat="debs in debates"><span class="numbers">-</span> {{debs.debate}}<br><br></li>
+						</ul>
+						<span class="titulo">Quantas vezes o Lorde participou num debate <br><span style="margin-left:10%">"Motion to take note"?</span></span>
+						<form class="formulario" ng-submit="countDebates()">
+							<input type="text" name="fname" placeholder="Nome do Lorde" ng-model="LordNameCountDebates">
+							<input type="submit" value="Pesquisar"><br>
+						</form>
+						<div class="resultado-motion-to-take" ng-show="cdebt">
+							<span class="result">{{cdebates}}</span> vezes.
+						</div>
+						<span class="titulo">Descubra o Lorde mais antigo!</span>
+						<form class="formulario" ng-submit="ancient()">
+							<input type="submit" value="Descobrir" style="width:81%;margin-left:10%;"><br>
+						</form>
+						<div class="resultado-mais-antigo" ng-show="old">
+							O Lorde mais antigo é o <span class="result">{{ancient}}</span>.
+						</div>
+						<span class="titulo">Qual o debate em que o Lorde participou de <br><span style="margin-left:10%"> forma mais ativa?</span></span>
+						<form class="formulario" ng-submit="mostTalkedDebate()">
+							<input type="text" name="fname" placeholder="Nome do Lorde" ng-model="LordNamemostTalkedDebate">
+							<input type="submit" value="Pesquisar"><br>
+						</form>
+						<div class="resultado-mais-antigo" ng-show="mostTalkedDebateShow">
+							O debate em que o {{LordNamemostTalkedDebate}} participou mais ativamente foi o <span class="result">{{mostTalkedDebate}}</span> com <span class="result">{{mostTalkedDebateN}}</span> ocorrências.
+						</div>
+						<span class="titulo">Quantas vezes foi usada uma palavra numa <br><span style="margin-left:10%"> moção aprovada?</span></span>
+						<form class="formulario" ng-submit="nWordApproved()">
+							 <select style="width:81%" ng-model="selectApproved">
+								<option value="" disabled selected>Escolha a Moção Aprovada</option>
+								<option ng-repeat="approved in approvedMotions" value="{{approved.unnest}}">{{approved.unnest}}</option>
+							</select> 
+							<input type="text" name="fname" placeholder="Palavra a Pesquisar" ng-model="WordApproved">
+							<input type="submit" value="Pesquisar"><br>
+						</form>
+						<div class="resultado-mais-antigo" ng-show="WordsApprovedShow">
+							A palavra "{{WordApproved}}" foi usada <span class="result">{{WordApprovedN}}</span> vezes na moção {{selectApproved}} que foi aprovada.
+						</div>
+						<span class="titulo">Quais as questões colocadas por um Lorde <br><span style="margin-left:10%"> num tema?</span></span>
+						<form class="formulario" ng-submit="questionsTheme()">
+							<input type="text" name="fname" placeholder="Lord a pesquisar" ng-model="nameLordQuestion">
+							<input type="text" name="fname2" placeholder="Tema a Pesquisar" ng-model="questionTheme">
+							<input type="submit" value="Pesquisar"><br>
+						</form>
+						<ul class="resultados-mais-antigo" ng-show="questionsShow">
+							As questões são as seguintes:
+							<li class="result" ng-repeat="quest in questions"><span class="numbers">-</span> {{quest}}<br><br></li>
+						</ul>
+						
+						<span class="titulo">Veja aqui alguns detalhes sobre as moções <br><span style="margin-left:10%"> aprovadas!</span></span>
+						<form class="formulario" ng-submit="speechTheme()">
+							  <select style="width:81%" ng-model="selectLord">
+								<option value="" disabled selected>Escolha o Lord</option>
+								<option ng-repeat="lord in lords" value="{{lord.name}}">{{lord.name}}</option>
+							</select> 
+							 <select style="width:81%" ng-model="selectApproved2">
+								<option value="" disabled selected>Escolha a Moção Aprovada</option>
+								<option ng-repeat="approved in approvedMotions" value="{{approved.unnest}}">{{approved.unnest}}</option>
+							</select> 
+							<input class="botao" type="submit" value="Pesquisar" style="width:81%"><br>
+						</form>
+						<div class="resultado-mais-antigo" ng-show="speechSize">
+							O {{selectLord}} teve intervenções no valor de {{nchars}} caracteres
+						</div>
+						<ul class="resultados-mais-antigo" ng-show="speechShow">
+							Os discursos são os seguintes:
+							<li class="result" ng-repeat="sp in speech"><span class="numbers">-</span> {{sp.unnest}}<br><br></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-3">
+					<center><h2>As pesquisas continuam...</h2>
+					<i class="fa fa-search-plus" style="font-size:25px;margin-bottom:20px;"></i></center>
+					<span class="titulo">Quantas vezes o Lorde disse esta palavra?</span>
+					<form class="formulario" ng-submit="countWord()">
+						<input type="text" name="fname" placeholder="Nome do Lorde" style="width:81%" ng-model="LordNameCountWord">
+						<input type="text" name="fname" placeholder="Palavra a Pesquisar" ng-model="word">
+						<input type="submit" value="Pesquisar"><br>
+					</form>
+					<div class="resultado-nr-vezes-palavra" ng-show="nword">
+						A palavra {{word}} foi usada <span class="result">{{nrWord}}</span> vezes.
+					</div>
+					<span class="titulo">Saiba quanto tempo durou o debate do tema <br><span style="margin-left:10%"> que procura!</span></span>
+					<form class="formulario" ng-submit="numberOfSessions()">
+						 <select style="width:81%" ng-model="selectApproved3">
+								<option value="" disabled selected>Escolha a Moção Aprovada</option>
+								<option ng-repeat="approved in approvedMotions" value="{{approved.unnest}}">{{approved.unnest}}</option>
+						</select> 
+						<input class="botao" type="submit" value="Pesquisar"><br>
+					</form>
+					<div class="resultado-duracao-tema" ng-show="nSessionsShow">
+						O Tema {{selectApproved3}} teve a duração de <span class="result">{{nSessions}}</span>.
+					</div>
+					<span class="titulo">Em quantas moções aprovadas esteve um Lorde?</span>
+					<form class="formulario" ng-submit="lordApproved()">
+						<input type="text" name="fname" placeholder="Nome do Lorde" ng-model="nameLordApproved">
+						<input type="submit" value="Pesquisar"><br>
+					</form>
+					<div class="resultado-duracao-tema" ng-show="nApprovedShow">
+						O Lorde {{nameLordApproved}} esteve presente em <span class="result">{{nApproved}}</span> moções que foram aprovadas.
+					</div>
+					<span class="titulo">Em quantas e quais moções estiveram dois <br><span style="margin-left:10%">Lordes juntos? </span></span>
+					<form class="formulario" ng-submit="twoLords()">
+						<input type="text" name="fname" placeholder="Nome do Primeiro Lorde" ng-model="nameLord1" style="width:81%">
+						<input type="text" name="fname" placeholder="Nome do Segundo Lorde" ng-model="nameLord2">
+						<input type="submit" value="Pesquisar"><br>
+					</form>
+					<div class="resultado-duracao-tema" ng-show="twoLordsShow">
+						Estiveram juntos em <span class="result">{{nTwoLords}}</span> moções que são as seguintes: 
+						<ul class="resultados-mais-antigo" ng-show="nTwoLordsShow">
+							Os discursos são os seguintes:
+							<li class="result" ng-repeat="mc in mocoes"><span class="numbers">-</span> {{mc.unnest}}<br><br></li>
+						</ul>
+					</div>
+					<span class="titulo">Em média quanto tempo demora a ser <br><span style="margin-left:10%"> aprovada uma moção?</span></span>
+					<form class="formulario" ng-submit="avgTime()">
+						<input type="submit" value="Descobrir" style="width:81%;margin-left:10%;"><br>
+					</form>
+					<div class="resultado-mais-antigo" ng-show="avgShow">
+						Em média, demoram <span class="result"> {{avg}}</span> até serem aprovadas.
+					</div>
+					<span class="titulo">Quantas vezes disse o Lorde uma palavra num <br><span style="margin-left:10%"> "Motion to Aprove", "Take Note", etc.?</span></span>
+					<form class="formulario" ng-submit="lordType()">
+						<input type="text" name="fname" placeholder="Nome do Lorde" ng-model="nameLordType" style="width:81%">
+						<input type="text" name="fname" placeholder="Palavra a pesquisar" ng-model="wordType" style="width:81%">
+						<select style="width:81%" ng-model="selectDebate">
+								<option value="" disabled selected>Escolha o Tipo de Debate</option>
+								<option ng-repeat="tp in types" value="{{tp.unnest}}">{{tp.unnest}}</option>
+						</select> 
+						<input type="submit" value="Pesquisar" style="width:81%" class="botao"><br>
+					</form>
+					<div class="resultado-mais-antigo" ng-show="typeShow">
+						A palavra {{wordType}} foi dita <span class="result"> {{nType}}</span> vezes.
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
